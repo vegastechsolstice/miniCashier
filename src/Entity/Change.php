@@ -2,53 +2,75 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Class Change
- * @Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ChangeRepository")
  */
 class Change
 {
-    /** @Id @Column(type="integer") @GeneratedValue */
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     private $id;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $pennies;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $nickels;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $dimes;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $quarters;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $ones;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $fives;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $tens;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $twenties;
 
-    /** @Column(type="integer") */
+    /** @ORM\Column(type="integer") */
     private $hundreds;
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getPennies()
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPennies(): int
     {
         return $this->pennies;
     }
 
     /**
-     * @param mixed $pennies
-     * @return Change
+     * @param int $pennies
+     * @return void
      */
     public function setPennies($pennies): void
     {
@@ -56,50 +78,50 @@ class Change
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getNickels()
+    public function getNickels(): int
     {
         return $this->nickels;
     }
 
     /**
-     * @param mixed $nickels
-     * @return Change
+     * @param int $nickels
+     * @return void
      */
     public function setNickels($nickels): void
     {
-        $this->$nickels = $nickels;
+        $this->nickels = $nickels;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getDimes()
+    public function getDimes(): int
     {
         return $this->dimes;
     }
 
     /**
-     * @param mixed $dimes
-     * @return Change
+     * @param int $dimes
+     * @return void
      */
     public function setDimes($dimes): void
     {
-        $this->$dimes = $dimes;
+        $this->dimes = $dimes;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getQuarters()
+    public function getQuarters(): int
     {
         return $this->quarters;
     }
 
     /**
-     * @param mixed $quarters
-     * @return Change
+     * @param int $quarters
+     * @return void
      */
     public function setQuarters($quarters): void
     {
@@ -107,16 +129,16 @@ class Change
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getOnes()
+    public function getOnes(): int
     {
         return $this->ones;
     }
 
     /**
-     * @param mixed $ones
-     * @return Change
+     * @param int $ones
+     * @return void
      */
     public function setOnes($ones): void
     {
@@ -124,16 +146,16 @@ class Change
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getFives()
+    public function getFives(): int
     {
         return $this->fives;
     }
 
     /**
-     * @param mixed $fives
-     * @return Change
+     * @param int $fives
+     * @return void
      */
     public function setFives($fives): void
     {
@@ -141,16 +163,16 @@ class Change
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getTens()
+    public function getTens(): int
     {
         return $this->tens;
     }
 
     /**
      * @param mixed $tens
-     * @return Change
+     * @return void
      */
     public function setTens($tens): void
     {
@@ -158,16 +180,16 @@ class Change
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getTwenties()
+    public function getTwenties(): int
     {
         return $this->twenties;
     }
 
     /**
-     * @param mixed $twenties
-     * @return Change
+     * @param int $twenties
+     * @return void
      */
     public function setTwenties($twenties): void
     {
@@ -175,16 +197,16 @@ class Change
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getHundreds()
+    public function getHundreds(): int
     {
         return $this->hundreds;
     }
 
     /**
-     * @param mixed $hundreds
-     * @return Change
+     * @param int $hundreds
+     * @return void
      */
     public function setHundreds($hundreds): void
     {

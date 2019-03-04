@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class MainController extends AbstractController
 {
@@ -40,18 +41,28 @@ class MainController extends AbstractController
      * @Route("/change")
      *
      * @param Request $request
+     * @param SerializerInterface $serializer
      * @return Response
      */
-    public function calculateChange(Request $request)
+    public function calculateChange(Request $request, SerializerInterface $serializer)
     {
         $totalCost      = $request->query->get('totalCost');
         $amountProvided = $request->query->get('amountProvided');
 
         $change = (new ChangeTenderService($totalCost, $amountProvided))->getChangeFromPerson();
 
+        try {
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($change);
+            $em->flush();
+        } catch (\Throwable $t) {
+            null;   //Needs a logger and user friendly message
+        }
+
         return $this->render(
             'cashier/change.html.twig',
-            ['change' => $change]
+            ['change' => $serializer->serialize($change, 'json')]
         );
     }
 }

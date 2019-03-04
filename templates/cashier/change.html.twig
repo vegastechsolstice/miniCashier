@@ -16,7 +16,7 @@
 
     <div class="transactionForm">{{ dump(change) }}
 
-        {% for denomination, quantity in change|cast_to_array %}
+        {% for denomination, quantity in change %}
             {{ dump(denomination) }}
             {{ dump(quantity) }}
             {% if quantity is not empty %}
