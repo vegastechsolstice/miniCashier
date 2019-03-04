@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Change Tendered {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('core') }}
+{% endblock %}
+
+{% block headline %}
+    <div id="main">
+        Here's your change!
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    <div class="transactionForm">{{ dump(change) }}
+
+        {% for denomination, quantity in change|cast_to_array %}
+            {{ dump(denomination) }}
+            {{ dump(quantity) }}
+            {% if quantity is not empty %}
+                {{ quantity }} x {{ denomination }}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+    {{ encore_entry_script_tags('core') }}
+
+{% endblock %}

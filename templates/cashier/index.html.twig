@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Cashier {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('core') }}
+{% endblock %}
+
+{% block headline %}
+    <div id="main">
+        Cashier
+    </div>
+{% endblock %}
+
+{% block body %}
+
+    <div class="transactionForm">
+        <form action="/change" method="get">
+            <label for="totalCost"> Cost: </label><input id="totalCost" name="totalCost" type="text" /><br>
+            <label for="amountProvided">Amount Provided: </label><input id="amountProvided" name="amountProvided" type="text" /><br>
+
+            <input id="calculate" type="submit" value="Calculate change" />
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+    {{ encore_entry_script_tags('core') }}
+
+{% endblock %}

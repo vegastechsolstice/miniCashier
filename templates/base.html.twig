@@ -2,11 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block headline %}{% endblock %}
+
+        <div id="navigation">
+            <a href="/">Home</a>
+            <a href="/cashier">Cashier</a>
+            <a href="/records">Recordkeeping</a>
+        </div>
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block scripts %}{% endblock %}
     </body>
 </html>

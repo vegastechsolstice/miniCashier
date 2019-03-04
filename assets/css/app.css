@@ -1,3 +1,39 @@
 body {
-    background-color: lightgray;
+    background-color: #d71921;
+}
+
+.transactionForm {
+    width: 50%;
+    margin: auto;
+    background-color: #565656;
+    color: white;
+    text-align: center;
+}
+
+#main {
+    width: 50%;
+    background-color: #565656;
+    margin: auto;
+    padding: 2rem;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+}
+
+#navigation {
+    width: 75%;
+    margin: auto;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+#navigation a {
+    background-color: #FFF;
+    color: #000;
+    padding: 1rem;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.5rem;
 }

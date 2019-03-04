@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Example Title {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('core') }}
+{% endblock %}
+
+{% block headline %}
+    <div id="main">
+        Welcome to a small transaction cashier!
+    </div>
+{% endblock %}
+
+{% block scripts %}
+
+    {{ encore_entry_script_tags('core') }}
+
+{% endblock %}
